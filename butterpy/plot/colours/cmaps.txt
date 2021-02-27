@@ -1,0 +1,12 @@
+moonlitasteroid,#0f2027,#203a43,#2c5364
+memariani,#aa4b6b,#6b6b83,#3b8d99
+bydesign,#009fff,#ec2f4b
+magic,#59c173,#a17fe0,#5d26c1
+kyemeh,#8360c3,#2ebf91
+darkocean,#373b44,#4286f4
+uv,#654ea3,#eaafc8
+rainbowblue,#00f260,#0575e6
+relay,#3a1c71,#d76d77,#ffaf7b
+visionsofgrandeur,#000046,#1cb5e0
+pacificdream,#34e89e,#0f3443
+jupiter,#ffd89b,#19547b
