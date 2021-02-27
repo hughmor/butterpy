@@ -4,3 +4,5 @@ __pycache__
 extras/
 extras/mpl_ffmpeg_cmds.txt
 outputs
+images
+tests
