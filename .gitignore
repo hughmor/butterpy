@@ -1,6 +1,6 @@
 mpl_ffmpeg_commands.txt
 .ipynb_checkpoints
-tests/.ipynb_checkpoints
+__pycache__
 extras/
 extras/mpl_ffmpeg_cmds.txt
 outputs
