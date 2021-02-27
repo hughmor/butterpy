@@ -28,3 +28,40 @@ class SystemSimulation:
         for i,t in enumerate(self._time):
             derivs[:,i] = self._sys.system(self.trajectory[:,i], t)
         return np.linalg.norm(derivs, axis=0)
+
+
+
+    # @property
+    # def x(self):
+    #     return self._state[0]
+    
+    # @property
+    # def y(self):
+    #     return self._state[1]
+    
+    # @property
+    # def z(self):
+    #     return self._state[2]
+    
+    # @property
+    # def position(self):
+    #     return (self.x, self.y, self.z)
+
+    # @x.setter
+    # def x(self, val):
+    #     self._state[0] = val
+    
+    # @y.setter
+    # def y(self, val):
+    #     self._state[1] = val
+    
+    # @z.setter
+    # def z(self, val):
+    #     self._state[2] = val
+        
+    # @position.setter
+    # def position(self, val):
+    #     assert len(val) == 3, "This is a 3d system: position must be an iterable of length 3."
+    #     self.x = val[0]
+    #     self.y = val[1]
+    #     self.z = val[2]
