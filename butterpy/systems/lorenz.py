@@ -21,6 +21,8 @@ class Lorenz:
             p for p in init
         ] if len(init)==3 else random_coord(3)
         self.sim = None
+        self._traj = None
+        self._speeds = None
 
     @classmethod
     def random_system(cls, s0=None, parameters=None):
@@ -58,6 +60,36 @@ class Lorenz:
         simulation = SystemSimulation(self, time_vect)
         if simulation.run():
             self.sim = simulation
+            self._traj = self.sim._positions
+            self._speeds = self._compute_speed()
+            self._max_speed = max(self._speeds)
+
+    def _compute_speed(self):
+        self._derivs = np.zeros_like(self.sim._positions)
+        for i,t in enumerate(self.sim._time):
+            self._derivs[:,i] = self.system(self.trajectory[:,i], t)
+        return np.linalg.norm(self._derivs, axis=0)
+
+    @property
+    def trajectory(self):
+        if self.sim.simulated:
+            return self._traj
+        else:
+            raise RuntimeError("System hasn't been simulated")
+
+    @property
+    def speeds(self):
+        if self.sim.simulated:
+            return self._speeds
+        else:
+            raise RuntimeError("System hasn't been simulated")
+
+    @property
+    def max_speed(self):
+        if self.sim.simulated:
+            return self._max_speed
+        else:
+            raise RuntimeError("System hasn't been simulated")
 
     @property
     def initial_state(self):
