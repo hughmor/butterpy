@@ -46,9 +46,9 @@ class LineAnimation:
             marker = None
 
         # set background colour
-        bg_colour = params.get('bg_color', 'black')
-        self._fig.set(facecolor='white')
-        self._ax.set(facecolor=bg_colour)
+        bg_color = params.get('bg_color', 'black')
+        self._fig.set(facecolor=bg_color)
+        self._ax.set(facecolor=bg_color)
 
         # set frame drawing parameters
         num_frames = self._sys.trajectory.shape[1] - 1 - self._start_frame
@@ -126,8 +126,9 @@ class LineAnimation:
         return dot
                     
     def _init_fig(self, params):
+        figsize = params.get("fig_size", (12,12))
         dpi = params.get("dpi", 256)
-        fig = plt.figure(dpi=dpi)
+        fig = plt.figure(figsize=figsize, dpi=dpi)
         ax = fig.add_subplot(projection="3d")
         plt.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=0, hspace=0) # remove margin between ax and fig
         if params.get("hide_axes", True):
