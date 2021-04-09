@@ -3,7 +3,5 @@ mpl_ffmpeg_commands.txt
 __pycache__
 extras/
 extras/mpl_ffmpeg_cmds.txt
-outputs
-images
 tests
 .vscode
