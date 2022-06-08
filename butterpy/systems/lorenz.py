@@ -1,26 +1,47 @@
 from butterpy.util import random_coord
-from butterpy.util.solvers import odeint, rk45
-from butterpy.systems.simulation import SystemSimulation
+#rom butterpy.systems.simulation import SystemSimulation
 import numpy as np
 from numpy import sqrt
 
 
-class Lorenz:
+class Lorenz(butterpy.systems.simulation.SystemSimulation):
     """
     system of a lorenz attractor
     this object represents an instance of a lorenz system defined by its set of parameters, and initial state
 
     TODO: accept dictionary for parameters
     """
+    dim = 3
     
     def __init__(self, init=(), pars=()):
         self._pars = [
             p for p in pars
-        ] if len(pars)==3 else random_coord(3)
+        ] if len(pars)==self.dim else random_coord(self.dim)
         self._init_state = [
             p for p in init
-        ] if len(init)==3 else random_coord(3)
+        ] if len(init)==self.dim else random_coord(self.dim)
         self.sim = None
+<<<<<<< Updated upstream
+=======
+        self._traj = None
+        self._speeds = None
+
+    def save(self, fn):
+        if fn[-7:] != '.pickle':
+            fn = fn.append('.pickle')
+        with open(fn, 'wb') as handle:
+            pickle.dump(self.__dict__, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    
+    @classmethod
+    def from_file(cls, fn):
+        if fn[-7:] != '.pickle':
+            fn = fn.append('.pickle')
+        with open(fn, 'rb') as handle:
+            d = pickle.load(handle)
+        ret = cls()
+        ret.__dict__ = d
+        return ret
+>>>>>>> Stashed changes
 
     @classmethod
     def random_system(cls, s0=None, parameters=None):
